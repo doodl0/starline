@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://4wlmpbxmv2hb"]
+
+[ext_resource type="Script" uid="uid://dt15viro5uj5j" path="res://scripts/enemy.gd" id="1_l1iq3"]
+[ext_resource type="Texture2D" uid="uid://b8nblrmgal3n3" path="res://sprites/enemy1.png" id="2_3xewf"]
+[ext_resource type="PackedScene" uid="uid://bq6dpy3wi7wy4" path="res://scenes/weapon.tscn" id="3_worlq"]
+[ext_resource type="PackedScene" uid="uid://h1xvd6easkrt" path="res://scenes/enemy_bullet.tscn" id="4_rrt21"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7yxa4"]
+radius = 8.062258
+
+[node name="Enemy Lv1" type="CharacterBody2D" unique_id=219520548 node_paths=PackedStringArray("weapon")]
+collision_layer = 4
+collision_mask = 19
+script = ExtResource("1_l1iq3")
+weapon = NodePath("Weapon")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1731421528]
+texture = ExtResource("2_3xewf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=796158112]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_7yxa4")
+
+[node name="Weapon" parent="." unique_id=864027934 instance=ExtResource("3_worlq")]
+bulletScene = ExtResource("4_rrt21")

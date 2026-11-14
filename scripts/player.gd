@@ -24,3 +24,7 @@ func _input(event):
 			weapon.shooting = true;
 		elif event.is_action_released("shoot"):
 			weapon.shooting = false;
+
+func damage(amount: int):
+	health -= amount;
+	pass
