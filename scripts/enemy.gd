@@ -6,3 +6,8 @@ class_name Enemy extends CharacterBody2D
 
 func _ready():
 	weapon.shooting = true;
+
+func damage(amount: int):
+	health -= amount;
+	if health <= 0:
+		queue_free();

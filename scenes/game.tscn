@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yicge48108e0"]
 
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://igoaa7cdr0o0" path="res://scenes/player_bullet.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cnjc7nq8dws52" path="res://scenes/health_bar.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://4wlmpbxmv2hb" path="res://scenes/enemy_lv1.tscn" id="3_lnu2h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7yxa4"]
@@ -10,7 +10,16 @@
 
 [node name="Game" type="Node2D" unique_id=327138029]
 
-[node name="Player" parent="." unique_id=793066248 instance=ExtResource("1_uwrxv")]
+[node name="Player" parent="." unique_id=793066248 node_paths=PackedStringArray("healthBar") instance=ExtResource("1_uwrxv")]
+healthBar = NodePath("../HealthBar")
+
+[node name="HealthBar" parent="." unique_id=1803343503 instance=ExtResource("3_lbhrr")]
+z_index = 5
+z_as_relative = false
+offset_left = -159.0
+offset_top = -95.0
+offset_right = -158.0
+offset_bottom = -94.0
 
 [node name="World Boundaries" type="StaticBody2D" parent="." unique_id=1321007379]
 collision_layer = 16
@@ -35,8 +44,20 @@ position = Vector2(0, -108)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_7yxa4")
 
-[node name="PlayerBullet" parent="World Boundaries" unique_id=868871203 instance=ExtResource("2_yqjtg")]
-position = Vector2(-9, 20)
+[node name="ColorRect" type="ColorRect" parent="World Boundaries" unique_id=380054813]
+z_index = -2
+offset_left = 75.0
+offset_top = -108.0
+offset_right = 275.0
+offset_bottom = 142.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="World Boundaries" unique_id=1800243258]
+offset_left = -276.0
+offset_top = -109.0
+offset_right = -76.0
+offset_bottom = 141.0
+color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1969688301]
 script = SubResource("GDScript_uwrxv")

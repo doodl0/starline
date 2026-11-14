@@ -5,6 +5,7 @@ class_name Bullet extends CharacterBody2D
 @export var speed: float = 200;
 @export var randomness: float = 1;
 @export var sprite: AnimatedSprite2D;
+@export var damage: int = 25;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

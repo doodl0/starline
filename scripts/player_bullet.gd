@@ -4,7 +4,8 @@ func collide(delta: float):
 	var collision_info = move_and_collide(velocity * delta);
 	if collision_info:
 		# if hitting enemy deal damage and destroy
-		if false:
+		if collision_info.get_collider().has_method("damage"):			
+			collision_info.get_collider().call("damage", damage);
 			queue_free();
 		# else if hit boundary, bounce
 		else:

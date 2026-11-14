@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var weapon: Weapon;
 @export_group("Health")
 @export var health: int = 100;
+@export var healthBar: HealthBar
 
 func _ready():
 	pass
@@ -27,4 +28,6 @@ func _input(event):
 
 func damage(amount: int):
 	health -= amount;
+	healthBar.health = health;
+	healthBar.setHealth();
 	pass

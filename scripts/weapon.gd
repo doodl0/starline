@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 	if shooting: shoot();
 	
 func shoot() -> void:
-	print(fireTimer.time_left)
 	if fireTimer.time_left <= 0:
 		fireTimer.start(fireRate);
 		var bullet = bulletScene.instantiate();
