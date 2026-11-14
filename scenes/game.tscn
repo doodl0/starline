@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://yicge48108e0"]
+
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://igoaa7cdr0o0" path="res://scenes/player_bullet.tscn" id="2_yqjtg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7yxa4"]
+
+[sub_resource type="GDScript" id="GDScript_uwrxv"]
+
+[node name="Game" type="Node2D" unique_id=327138029]
+
+[node name="Player" parent="." unique_id=793066248 instance=ExtResource("1_uwrxv")]
+
+[node name="World Boundaries" type="StaticBody2D" parent="." unique_id=1321007379]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries" unique_id=1043317931]
+position = Vector2(-76, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_7yxa4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World Boundaries" unique_id=996635314]
+position = Vector2(0, 120)
+shape = SubResource("WorldBoundaryShape2D_7yxa4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="World Boundaries" unique_id=1684797186]
+position = Vector2(75, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_7yxa4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="World Boundaries" unique_id=811737838]
+position = Vector2(0, -119)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_7yxa4")
+
+[node name="PlayerBullet" parent="World Boundaries" unique_id=868871203 instance=ExtResource("2_yqjtg")]
+position = Vector2(-9, 20)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1969688301]
+script = SubResource("GDScript_uwrxv")

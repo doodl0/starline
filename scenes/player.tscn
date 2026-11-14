@@ -1,12 +1,26 @@
 [gd_scene format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Texture2D" uid="uid://bcpnsqxun5hyn" path="res://sprites/player.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://diedvam4pjps7" path="res://scripts/weapon.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://sh0ttk3aubvq" path="res://scenes/player.gd" id="1_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bq6dpy3wi7wy4" path="res://scenes/weapon.tscn" id="3_dqkch"]
+[ext_resource type="PackedScene" uid="uid://igoaa7cdr0o0" path="res://scenes/player_bullet.tscn" id="4_dqkch"]
 
-[node name="Player" type="Node2D" unique_id=793066248]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxun7"]
+radius = 8.062258
+
+[node name="Player" type="CharacterBody2D" unique_id=401340649 node_paths=PackedStringArray("weapon")]
+script = ExtResource("1_qhqgy")
+speed = 200
+weapon = NodePath("Weapon")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=943044842]
 texture = ExtResource("1_4flbx")
 
-[node name="Weapon" type="Node2D" parent="." unique_id=1332268885]
-script = ExtResource("2_g2els")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=143804393]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_yxun7")
+
+[node name="Weapon" parent="." unique_id=864027934 instance=ExtResource("3_dqkch")]
+position = Vector2(0, -10)
+fireRate = 0.5
+bulletScene = ExtResource("4_dqkch")

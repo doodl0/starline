@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bq6dpy3wi7wy4"]
+
+[ext_resource type="Script" uid="uid://diedvam4pjps7" path="res://scripts/weapon.gd" id="1_xasec"]
+
+[node name="Weapon" type="Node2D" unique_id=864027934 node_paths=PackedStringArray("fireTimer")]
+script = ExtResource("1_xasec")
+fireTimer = NodePath("Fire Timer")
+
+[node name="Fire Timer" type="Timer" parent="." unique_id=2087811877]
+one_shot = true
