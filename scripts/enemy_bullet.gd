@@ -13,7 +13,6 @@ func collide(delta: float):
 			sprite.frame = 3 - bounces;
 			if bounces == 0: queue_free();
 			direction = velocity.bounce(collision_info.get_normal()).normalized();
-			direction.x += (randf() - 0.5) * randomness;
-			direction.y += (randf() - 0.5) * randomness;
+			setRandomDirection(randomness)
 			direction = direction.normalized();
 	pass

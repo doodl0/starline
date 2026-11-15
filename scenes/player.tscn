@@ -9,10 +9,11 @@
 radius = 8.062258
 
 [node name="Player" type="CharacterBody2D" unique_id=401340649 node_paths=PackedStringArray("weapon")]
-collision_mask = 28
+collision_mask = 24
 script = ExtResource("1_qhqgy")
 speed = 150
 weapon = NodePath("Weapon")
+bounces = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=943044842]
 texture = ExtResource("1_4flbx")
@@ -25,3 +26,6 @@ shape = SubResource("CircleShape2D_yxun7")
 position = Vector2(0, -10)
 fireRate = 0.5
 bulletScene = ExtResource("4_dqkch")
+bounces = 2
+randomness = 0.0
+direction = Vector2(0, -1)

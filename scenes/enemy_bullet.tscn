@@ -41,7 +41,7 @@ collision_mask = 17
 script = ExtResource("1_qx7rs")
 bounces = 3
 direction = Vector2(0, 1)
-speed = 100.0
+speed = 150.0
 sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=865843573]

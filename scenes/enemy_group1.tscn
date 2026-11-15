@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://drn48rnsiarjf"]
+
+[ext_resource type="Script" uid="uid://csvb1r3lyjef8" path="res://scripts/enemy_group.gd" id="1_sxqnm"]
+[ext_resource type="PackedScene" uid="uid://4wlmpbxmv2hb" path="res://scenes/enemy_lv1.tscn" id="2_ye5pi"]
+
+[sub_resource type="Curve2D" id="Curve2D_grn2s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, -50, 0, 0, 0, 0, 0, 50, 0)
+}
+point_count = 4
+
+[node name="EnemyGroup1" type="Path2D" unique_id=437132366 node_paths=PackedStringArray("pathFollow", "enemies", "timer")]
+curve = SubResource("Curve2D_grn2s")
+script = ExtResource("1_sxqnm")
+pathFollow = NodePath("PathFollow2D")
+enemies = [NodePath("Enemy Lv1"), NodePath("Enemy Lv2"), NodePath("Enemy Lv3"), NodePath("Enemy Lv4"), NodePath("Enemy Lv5")]
+speed = 200.0
+timer = NodePath("Timer")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=2136859262]
+position = Vector2(50, 0)
+rotation = -2.3561945
+rotates = false
+
+[node name="Enemy Lv1" parent="." unique_id=219520548 instance=ExtResource("2_ye5pi")]
+position = Vector2(-23, 35)
+
+[node name="Enemy Lv2" parent="." unique_id=959043801 instance=ExtResource("2_ye5pi")]
+position = Vector2(-1, 45)
+
+[node name="Enemy Lv3" parent="." unique_id=2021098273 instance=ExtResource("2_ye5pi")]
+position = Vector2(45, 7)
+
+[node name="Enemy Lv4" parent="." unique_id=787874155 instance=ExtResource("2_ye5pi")]
+position = Vector2(45, 7)
+
+[node name="Enemy Lv5" parent="." unique_id=1490774687 instance=ExtResource("2_ye5pi")]
+position = Vector2(45, 7)
+
+[node name="Timer" type="Timer" parent="." unique_id=402162646]
+wait_time = 7.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

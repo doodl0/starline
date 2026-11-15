@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dqhw64akqp18s"]
+
+[ext_resource type="Script" uid="uid://degp5g31efc4c" path="res://scripts/scrap_counter.gd" id="1_6qp8y"]
+[ext_resource type="Texture2D" uid="uid://dlqjf5cw5xixu" path="res://sprites/scrap-icon.png" id="1_eo58x"]
+[ext_resource type="FontFile" uid="uid://dldk5faolo74g" path="res://fonts/DotGothic16-Regular.ttf" id="2_6qp8y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_exble"]
+font = ExtResource("2_6qp8y")
+
+[node name="ScrapCounter" type="Control" unique_id=1733831571 node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6qp8y")
+label = NodePath("Label")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=393127588]
+texture = ExtResource("1_eo58x")
+
+[node name="Label" type="Label" parent="." unique_id=2099620615]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -13.0
+offset_right = 80.0
+offset_bottom = 11.0
+text = "0"
+label_settings = SubResource("LabelSettings_exble")

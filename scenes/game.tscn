@@ -1,25 +1,68 @@
 [gd_scene format=3 uid="uid://yicge48108e0"]
 
+[ext_resource type="Script" uid="uid://jv5gempkmtvq" path="res://scripts/game.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://dqhw64akqp18s" path="res://scenes/scrap_counter.tscn" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dgkegfaldmhyk" path="res://scenes/enemy_group3.tscn" id="2_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://woniut50gw8j" path="res://scenes/enemy_group2.tscn" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://cnjc7nq8dws52" path="res://scenes/health_bar.tscn" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://4wlmpbxmv2hb" path="res://scenes/enemy_lv1.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://drn48rnsiarjf" path="res://scenes/enemy_group1.tscn" id="3_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://lbbvjxnebsga" path="res://scenes/game_over.tscn" id="4_gee14"]
+[ext_resource type="PackedScene" uid="uid://c1obxnolo4jx1" path="res://scenes/health_bar_enemy.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://lnwbof5s0xcp" path="res://scenes/shop.tscn" id="9_0tnpc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7yxa4"]
 
 [sub_resource type="GDScript" id="GDScript_uwrxv"]
 
-[node name="Game" type="Node2D" unique_id=327138029]
+[node name="Game" type="Node2D" unique_id=327138029 node_paths=PackedStringArray("enemyHealthBar", "shop")]
+script = ExtResource("1_iywne")
+enemyWaves = Array[PackedScene]([ExtResource("3_u5sy4"), ExtResource("2_iywne"), ExtResource("2_0tnpc")])
+enemyHealthBar = NodePath("UI/HealthBarEnemy")
+gameOverScreen = ExtResource("4_gee14")
+shop = NodePath("UI/Shop")
 
-[node name="Player" parent="." unique_id=793066248 node_paths=PackedStringArray("healthBar") instance=ExtResource("1_uwrxv")]
-healthBar = NodePath("../HealthBar")
-
-[node name="HealthBar" parent="." unique_id=1803343503 instance=ExtResource("3_lbhrr")]
+[node name="UI" type="Control" parent="." unique_id=536808641]
 z_index = 5
-z_as_relative = false
-offset_left = -159.0
-offset_top = -95.0
-offset_right = -158.0
-offset_bottom = -94.0
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Shop" parent="UI" unique_id=1627800833 node_paths=PackedStringArray("player", "gm") instance=ExtResource("9_0tnpc")]
+layout_mode = 1
+offset_top = -50.0
+offset_bottom = -50.0
+player = NodePath("../../Player")
+gm = NodePath("../..")
+
+[node name="ScrapCounter" parent="UI" unique_id=1733831571 instance=ExtResource("1_lbhrr")]
+process_mode = 3
+layout_mode = 1
+offset_left = -176.0
+offset_top = -58.0
+offset_right = -176.0
+offset_bottom = -58.0
+
+[node name="HealthBar" parent="UI" unique_id=1803343503 instance=ExtResource("3_lbhrr")]
+process_mode = 3
+layout_mode = 0
+offset_left = -156.0
+offset_top = -88.0
+offset_right = -155.0
+offset_bottom = -87.0
+
+[node name="HealthBarEnemy" parent="UI" unique_id=1052163929 instance=ExtResource("6_p57ef")]
+layout_mode = 0
+offset_left = 113.0
+offset_top = -78.0
+offset_right = 114.0
+offset_bottom = -77.0
+
+[node name="Player" parent="." unique_id=793066248 node_paths=PackedStringArray("healthBar", "scrapCounter", "gm") instance=ExtResource("1_uwrxv")]
+healthBar = NodePath("../UI/HealthBar")
+scrapCounter = NodePath("../UI/ScrapCounter")
+gm = NodePath("..")
 
 [node name="World Boundaries" type="StaticBody2D" parent="." unique_id=1321007379]
 collision_layer = 16
@@ -47,20 +90,17 @@ shape = SubResource("WorldBoundaryShape2D_7yxa4")
 [node name="ColorRect" type="ColorRect" parent="World Boundaries" unique_id=380054813]
 z_index = -2
 offset_left = 75.0
-offset_top = -108.0
-offset_right = 275.0
-offset_bottom = 142.0
+offset_top = -1000.0
+offset_right = 2075.0
+offset_bottom = 1000.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="World Boundaries" unique_id=1800243258]
-offset_left = -276.0
-offset_top = -109.0
+offset_left = -2076.0
+offset_top = -1000.0
 offset_right = -76.0
-offset_bottom = 141.0
+offset_bottom = 1000.0
 color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1969688301]
 script = SubResource("GDScript_uwrxv")
-
-[node name="Enemy Lv1" parent="." unique_id=219520548 instance=ExtResource("3_lnu2h")]
-position = Vector2(-1, -51)

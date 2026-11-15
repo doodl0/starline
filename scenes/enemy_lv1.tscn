@@ -12,7 +12,8 @@ radius = 8.062258
 collision_layer = 4
 collision_mask = 19
 script = ExtResource("1_l1iq3")
-weapon = NodePath("Weapon")
+weapon = [NodePath("Weapon")]
+scrapValue = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1731421528]
 texture = ExtResource("2_3xewf")
@@ -22,5 +23,7 @@ position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_7yxa4")
 
 [node name="Weapon" parent="." unique_id=864027934 instance=ExtResource("3_worlq")]
-fireRate = 1.5
+fireRate = 2.0
 bulletScene = ExtResource("4_rrt21")
+randomness = 0.25
+direction = Vector2(0, 1)

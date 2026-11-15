@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://2kcdgqv2fu1r"]
+
+[ext_resource type="Script" uid="uid://dt15viro5uj5j" path="res://scripts/enemy.gd" id="1_23kvp"]
+[ext_resource type="Texture2D" uid="uid://2sxtqta851jf" path="res://sprites/enemy2.png" id="2_4e2ig"]
+[ext_resource type="PackedScene" uid="uid://bq6dpy3wi7wy4" path="res://scenes/weapon.tscn" id="3_lsk8u"]
+[ext_resource type="PackedScene" uid="uid://h1xvd6easkrt" path="res://scenes/enemy_bullet.tscn" id="4_thqno"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l4k25"]
+radius = 9.0
+
+[node name="Enemy2" type="CharacterBody2D" unique_id=601469094 node_paths=PackedStringArray("weapon")]
+collision_layer = 4
+script = ExtResource("1_23kvp")
+health = 50
+weapon = [NodePath("Weapon2"), NodePath("Weapon3")]
+metadata/_custom_type_script = "uid://dt15viro5uj5j"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217320519]
+texture = ExtResource("2_4e2ig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087565498]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_l4k25")
+
+[node name="Weapon2" parent="." unique_id=1589855357 instance=ExtResource("3_lsk8u")]
+position = Vector2(0, 7)
+fireRate = 3.0
+bulletScene = ExtResource("4_thqno")
+bounces = 2
+randomness = 0.0
+direction = Vector2(0.5, 0.5)
+
+[node name="Weapon3" parent="." unique_id=1892009321 instance=ExtResource("3_lsk8u")]
+position = Vector2(0, 7)
+fireRate = 3.0
+bulletScene = ExtResource("4_thqno")
+bounces = 2
+randomness = 0.0
+direction = Vector2(-0.5, 0.5)

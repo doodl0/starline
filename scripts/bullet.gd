@@ -22,3 +22,14 @@ func _physics_process(delta: float) -> void:
 	
 func collide(delta: float):
 	pass
+	
+func setBounces(amount: int):
+	bounces = amount;
+	
+func setRandomDirection(random: float):
+	direction.x += (randf() - 0.5) * random;
+	direction.y += (randf() - 0.5) * random;
+	
+func setDirection(x: float, y: float):
+	direction.x = x;
+	direction.y = y;

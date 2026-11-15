@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://lnwbof5s0xcp"]
+
+[ext_resource type="Script" uid="uid://bqypikqf7hqst" path="res://scripts/shop.gd" id="1_1l46r"]
+[ext_resource type="Texture2D" uid="uid://drfwnexyblkd8" path="res://sprites/shopitem.png" id="1_xfvoa"]
+[ext_resource type="FontFile" uid="uid://dldk5faolo74g" path="res://fonts/DotGothic16-Regular.ttf" id="2_1l46r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqhvx"]
+font = ExtResource("2_1l46r")
+outline_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l46r"]
+font = ExtResource("2_1l46r")
+outline_size = 1
+
+[node name="Shop" type="Control" unique_id=1627800833]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_1l46r")
+
+[node name="Item4" type="Control" parent="." unique_id=701768060]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Item4" unique_id=1916390068]
+texture = ExtResource("1_xfvoa")
+
+[node name="Label2" type="Label" parent="Item4" unique_id=1341554532]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.024
+offset_left = -107.04
+offset_top = -13.0
+offset_right = 52.0
+offset_bottom = 11.0
+text = "1.     50     +50 Health"
+label_settings = SubResource("LabelSettings_wqhvx")
+
+[node name="Item1" type="Control" parent="." unique_id=1960211028]
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Item1" unique_id=447859623]
+texture = ExtResource("1_xfvoa")
+
+[node name="Label2" type="Label" parent="Item1" unique_id=1045057821]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.024
+offset_left = -107.04
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 11.0
+text = "2.     75     +1 Bounce"
+label_settings = SubResource("LabelSettings_wqhvx")
+
+[node name="Item2" type="Control" parent="." unique_id=1746978043]
+anchors_preset = 0
+offset_top = 80.0
+offset_right = 40.0
+offset_bottom = 120.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Item2" unique_id=1215103081]
+texture = ExtResource("1_xfvoa")
+
+[node name="Label2" type="Label" parent="Item2" unique_id=1360522321]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.024
+offset_left = -107.04
+offset_top = -13.0
+offset_right = 28.0
+offset_bottom = 11.0
+text = "3.     100 1.5x Firerate"
+label_settings = SubResource("LabelSettings_wqhvx")
+
+[node name="Header" type="Control" parent="." unique_id=1639610150]
+anchors_preset = 0
+offset_left = 38.0
+offset_top = -41.0
+offset_right = 78.0
+offset_bottom = -1.0
+
+[node name="Label2" type="Label" parent="Header" unique_id=2089599166]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.024
+offset_left = -136.04
+offset_top = -30.0
+offset_right = 71.0
+offset_bottom = 21.0
+text = "Shop: 
+Press number key to select"
+label_settings = SubResource("LabelSettings_1l46r")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Control" parent="." unique_id=868353585]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 160.0
+offset_right = 43.0
+offset_bottom = 200.0
+
+[node name="Label2" type="Label" parent="Close" unique_id=1467367211]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.024
+offset_left = -107.04
+offset_top = -13.0
+offset_right = 28.0
+offset_bottom = 11.0
+text = "5. Close Shop"
+label_settings = SubResource("LabelSettings_wqhvx")
+
+[node name="Item3" type="Control" parent="." unique_id=252135581]
+anchors_preset = 0
+offset_top = 120.0
+offset_right = 40.0
+offset_bottom = 160.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Item3" unique_id=208070136]
+texture = ExtResource("1_xfvoa")
+
+[node name="Label2" type="Label" parent="Item3" unique_id=1352361576]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.024
+offset_left = -107.04
+offset_top = -13.0
+offset_right = 28.0
+offset_bottom = 11.0
+text = "4.     125 2x Max Health"
+label_settings = SubResource("LabelSettings_wqhvx")
