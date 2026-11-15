@@ -28,6 +28,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if (healthBar.label2 != null):
+		healthBar.label2.text = "Wave Health:\n Difficulty " + str(difficulty);
 	if finished:
 		position.y -= speed / 100
 	elif totalHealth() <= 0:
