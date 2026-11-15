@@ -16,7 +16,7 @@ var finished: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if (healthBar.label2 != null):
-		healthBar.label2.text = "Wave Health:\n Difficulty" + str(difficulty);
+		healthBar.label2.text = "Wave Health:\n Difficulty " + str(difficulty);
 	speed *= difficulty;
 	healthBar.maxHealth = maxTotalHealth * difficulty;
 	position = startPos;
